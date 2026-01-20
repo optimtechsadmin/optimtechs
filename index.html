@@ -13,28 +13,14 @@
             color: #333;
         }
 
-        header {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: auto;
-        }
-
+        /* Navigation */
         nav {
             background: #111;
             padding: 10px 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
@@ -44,12 +30,78 @@
             font-weight: bold;
         }
 
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        /* Hero Section */
+        header#home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #00bfff;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #009acd;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
         section {
             padding: 60px 20px;
             max-width: 1100px;
             margin: auto;
         }
 
+        section h2 {
+            text-align: center;
+            color: #2c5364;
+            margin-bottom: 40px;
+        }
+
+        /* Services */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -61,12 +113,20 @@
             padding: 25px;
             border-radius: 8px;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .card h3 {
             color: #2c5364;
+            margin-bottom: 15px;
         }
 
+        /* Technologies */
         .tech-list span {
             display: inline-block;
             background: #2c5364;
@@ -87,10 +147,31 @@
         footer p {
             margin: 5px 0;
         }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header#home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero-image {
+                margin-top: 30px;
+            }
+        }
     </style>
 </head>
 <body>
 
+<!-- Navigation -->
 <nav>
     <a href="#home">Home</a>
     <a href="#services">Services</a>
@@ -99,11 +180,21 @@
     <a href="#contact">Contact</a>
 </nav>
 
+<!-- Hero Section -->
 <header id="home">
-    <h1>OptimTechs</h1>
-    <p>We build scalable, secure, and high-performance software solutions for businesses worldwide.</p>
+    <div class="hero-text">
+        <!--<h1>We Build Cutting-Edge Software Solutions</h1>-->
+		<h1>We build scalable, secure, and high-performance software solutions for businesses worldwide.</h1>
+        <p>Custom software, web & mobile apps, and cloud solutions to grow your business.</p>
+        <a href="#services" class="cta-button">Get Started</a>
+    </div>
+    <div class="hero-image">
+            <img src="images/software_dev.jpeg" alt="Software Development Illustration">
+
+    </div>
 </header>
 
+<!-- Services Section -->
 <section id="services">
     <h2>Our Services</h2>
     <div class="services">
@@ -126,6 +217,7 @@
     </div>
 </section>
 
+<!-- About Section -->
 <section id="about">
     <h2>About OptimTechs</h2>
     <p>
@@ -135,32 +227,30 @@
     </p>
 </section>
 
+<!-- Technologies Section -->
 <section id="technologies">
     <h2>Technologies We Use</h2>
     <div class="tech-list">
         <span>Java</span>
-        <span> Java Server Face</span>
         <span>Spring Boot</span>
         <span>JavaScript</span>
         <span>React</span>
         <span>Node.js</span>
-        <span>Python</span>
         <span>Docker</span>
         <span>Kubernetes</span>
     </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact">
     <h2>Contact Us</h2>
     <p>Email: <strong>info@optimtechs.com</strong></p>
-    
 </section>
 
+<!-- Footer -->
 <footer>
-    <p>© 2026 OptimTechs. All Rights Reserved to OptimTechs company </p>
+    <p>© 2026 OptimTechs. All Rights Reserved.</p>
 </footer>
 
 </body>
 </html>
-
-
