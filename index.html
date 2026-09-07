@@ -142,6 +142,47 @@
             font-size: 14px;
         }
 
+        /* Clients */
+        .clients-intro {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .client-logo-card {
+            min-height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .client-logo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.13);
+        }
+
+        .client-logo-card img {
+            max-width: 100%;
+            max-height: 150px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
         footer {
             background: #111;
             color: #fff;
@@ -183,6 +224,7 @@
     <a href="#services">Services</a>
     <a href="#about">About Us</a>
 	<a href="#case_studies">Case Studies</a>
+    <a href="#clients">Our Clients</a>
     <a href="#technologies">Technologies</a>
 	<a href="#cta">CTA</a>
     <a href="#contact">Contact Us</a>
@@ -281,6 +323,23 @@
 
 <p>These projects reflect our commitment to quality, <strong>transparency, and results</strong>, and our ability to deliver solutions that make a real impact.</p>
 
+</section>
+
+<!-- Clients Section -->
+<section id="clients">
+    <h2>Our Clients</h2>
+    <p class="clients-intro">We are proud to work with organizations that trust OptimTechs to support their technology goals and digital growth.</p>
+    <div class="clients-grid">
+        <div class="client-logo-card">
+            <img src="images/client-uniqueness-general-supplies.png" alt="Uniqueness Gate for General Supplies client logo" loading="lazy">
+        </div>
+        <div class="client-logo-card">
+            <img src="images/client-uniqueness-water-networks.png" alt="Uniqueness Gate for supply water networks client logo" loading="lazy">
+        </div>
+        <div class="client-logo-card">
+            <img src="images/client-jlx-valves-factory.png" alt="JLX Valves Factory client logo" loading="lazy">
+        </div>
+    </div>
 </section>
 
 <!-- Technologies Section -->
