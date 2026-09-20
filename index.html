@@ -797,10 +797,37 @@
     width: 148px !important;
     max-height: 86px !important;
   }
+  .nav-wrap {
+    position: relative;
+    flex-wrap: nowrap !important;
+  }
   .nav-links {
+    display: flex !important;
+    position: absolute;
+    z-index: 1001;
+    top: calc(100% - 6px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0 !important;
+    padding: 10px !important;
+    flex-direction: column;
+    align-items: stretch;
     background: #ffffff !important;
     border: 1px solid #d9edf5 !important;
+    border-radius: 16px;
     box-shadow: 0 18px 40px rgba(15,32,39,.14) !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  }
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
   .nav-links a {
     color: #28465b !important;
@@ -1054,16 +1081,46 @@
   <script>
     const menuButton = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav-links');
-    menuButton.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuButton.textContent = isOpen ? '×' : '☰';
-    });
-    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+
+    const closeMenu = () => {
       nav.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
       menuButton.textContent = '☰';
-    }));
+    };
+
+    const openMenu = () => {
+      nav.classList.add('open');
+      menuButton.setAttribute('aria-expanded', 'true');
+      menuButton.setAttribute('aria-label', 'Close navigation');
+      menuButton.textContent = '×';
+    };
+
+    // Always start closed on small devices, including after browser back/restore.
+    closeMenu();
+    window.addEventListener('pageshow', closeMenu);
+
+    menuButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      nav.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+    // Close the mobile menu when tapping outside it or pressing Escape.
+    document.addEventListener('click', (event) => {
+      if (nav.classList.contains('open') && !nav.contains(event.target) && !menuButton.contains(event.target)) {
+        closeMenu();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    // Reset the mobile state when rotating the device or returning to desktop width.
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 840) closeMenu();
+    });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
