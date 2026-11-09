@@ -853,6 +853,100 @@
   }
   .hero { padding-top: 66px !important; }
 }
+
+    /* Product showcase: Electronic Correspondence Application */
+    .product-showcase {
+      background: linear-gradient(155deg, #f4fbfe 0%, #ffffff 64%, #edf8fb 100%);
+    }
+    .product-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr);
+      gap: clamp(24px, 5vw, 64px);
+      align-items: center;
+      padding: clamp(26px, 5vw, 60px);
+      border: 1px solid #d7eaf2;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: 0 18px 48px rgba(15, 32, 39, .075);
+    }
+    .product-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      margin-bottom: 15px;
+      border-radius: 100px;
+      background: #e8f7fc;
+      color: #007ea8;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .product-panel h2 {
+      margin: 0 0 14px;
+      color: #17384c;
+      font-size: clamp(1.8rem, 3.3vw, 2.75rem);
+      line-height: 1.17;
+    }
+    .product-panel p {
+      color: #60758a;
+      line-height: 1.75;
+      margin: 0 0 13px;
+    }
+    .product-actions { margin-top: 23px; }
+    .product-visual {
+      padding: 26px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #102a36, #205267);
+      color: #fff;
+      min-width: 0;
+    }
+    .product-visual-title {
+      color: #9be6ff;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      margin-bottom: 20px;
+    }
+    .product-flow {
+      display: grid;
+      gap: 12px;
+    }
+    .product-flow-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 15px;
+      border: 1px solid rgba(180, 235, 250, .22);
+      background: rgba(255,255,255,.065);
+      border-radius: 13px;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+    .product-flow-item span {
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      color: #082632;
+      background: #77dcf6;
+      font-size: .8rem;
+    }
+    .product-visual-note {
+      margin: 19px 0 0 !important;
+      color: #cce8f1 !important;
+      font-size: .83rem;
+    }
+    @media (max-width: 840px) {
+      .product-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .product-panel { padding: 22px 18px; border-radius: 18px; }
+      .product-visual { padding: 18px; }
+    }
+
 </style>
 
 </head>
@@ -866,6 +960,7 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
+        <a href="#products">Products</a>
         <a href="#about">About</a>
         <a href="#case-studies">Case Studies</a>
         <a href="#clients">Clients</a>
@@ -985,6 +1080,38 @@
             <p>We implement, optimize, and support solutions with a focus on performance, user experience, automation, and long-term sustainability.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+
+    <section id="products" class="product-showcase" aria-labelledby="eca-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Our products</p>
+          <h2>Business software for smarter correspondence management</h2>
+          <p>Explore solutions designed to help organizations work more efficiently.</p>
+        </div>
+        <article class="product-panel">
+          <div class="product-content">
+            <span class="product-label">Electronic Correspondence Application · ECA</span>
+            <h2 id="eca-title">Electronic Correspondence Application</h2>
+            <p>ECA is a secure electronic correspondence management platform that enables organizations to create, send, receive, track, organize, and manage official letters and correspondence in one centralized system.</p>
+            <p>Designed around the full correspondence lifecycle, ECA improves visibility and coordination across departments. Approval workflows are an integrated component that supports correspondence review and authorization.</p>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="mailto:info@optimtechs.com?subject=ECA%20%E2%80%93%20Request%20a%20Demo&amp;body=Hello%20OptimTechs%2C%0A%0AI%20would%20like%20to%20request%20a%20demo%20of%20the%20Electronic%20Correspondence%20Application%20%28ECA%29.%0A%0AOrganization%3A%20%0AContact%20name%3A%20%0APreferred%20date%2Ftime%3A%20%0A%0AThank%20you.">Request a Demo →</a>
+            </div>
+          </div>
+          <div class="product-visual" aria-label="ECA correspondence management capabilities">
+            <div class="product-visual-title">ECA · CORRESPONDENCE MANAGEMENT</div>
+            <div class="product-flow">
+              <div class="product-flow-item"><span>01</span> Create &amp; register correspondence</div>
+              <div class="product-flow-item"><span>02</span> Send &amp; receive correspondence</div>
+              <div class="product-flow-item"><span>03</span> Track &amp; manage correspondence</div>
+              <div class="product-flow-item"><span>04</span> Approval workflows</div>
+            </div>
+            <p class="product-visual-note">One centralized platform for official correspondence, with approval workflows as a supporting component.</p>
+          </div>
+        </article>
       </div>
     </section>
 
